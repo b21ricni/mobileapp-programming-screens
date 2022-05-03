@@ -10,7 +10,7 @@ _Du kan ta bort all text som finns sedan tidigare_.
 Först så lades log.d till för on start, stop ect. sedan så skapdes en login screen med text, ruta 
 för att skriva namn och en knapp. Sedan så skapas klick hanterare genom att för skapa en knapp 
 variable private Button signin;, och sedan så görs en findviewbyid på signin så man kan göra en
-setonclick som fungerar. 
+setonclick som fungerar. För att koppla knappen till MainActivity 2 så skapades intent
 
 ```
 function errorCallback(error) {
