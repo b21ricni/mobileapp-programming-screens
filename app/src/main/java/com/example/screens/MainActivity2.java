@@ -2,6 +2,7 @@ package com.example.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,10 +47,17 @@ public class MainActivity2 extends AppCompatActivity {
         Log.d("==>", "MA2onCreate");
         goback = findViewById(R.id.GoBackButton);
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        String name = extras.getString("name");
+        Log.d("==>","name from intent:" + name);
+
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("==>","Go Back pressed");
+                finish();
             }
         });
 

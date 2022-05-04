@@ -11,7 +11,15 @@ Först så lades log.d till för on start, stop ect. sedan så skapdes en login 
 för att skriva namn och en knapp. Sedan så skapas klick hanterare genom att för skapa en knapp 
 variable private Button signin;, och sedan så görs en findviewbyid på signin så man kan göra en
 setonclick som fungerar. För att koppla knappen till MainActivity 2 så skapades intent.
-Sedan så skapades en "go Back button" för att gå från Main activity 2 till Main activity 1
+Sedan så skapades en "go Back button" för att gå från Main activity 2 till Main activity 1 genom
+att sätta intent på knappen att den ska stänga av aktivitenten(finish) som är aktivt. efter det så
+lades text till för att få fram ett användarnamn, detta är gjort genom att skapa en edit text
+variable och som tidigare så använder man findbyviewid för att koppla den till text rutan, och
+för att testa att det fungera så loggades den med en +name.getText().toString(). När det fungerar så
+skapas en intent.putExtra med get text funktionen och ger taggen ett id för att kunna skicka den 
+till main activity2, sedan så lades det till i main activity 2 en intent funktion för att hämta
+namnet och String name = extras.getString("name"); är slut funktionen som definerar id:et vi vill
+hämta. 
 
 ```
 function errorCallback(error) {
