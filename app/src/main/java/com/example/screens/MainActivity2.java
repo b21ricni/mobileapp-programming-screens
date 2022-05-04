@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity2 extends AppCompatActivity {
 
     private Button goback;
+    private TextView showname;
 
     public MainActivity2(){
         super();
@@ -46,11 +48,13 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Log.d("==>", "MA2onCreate");
         goback = findViewById(R.id.GoBackButton);
+        showname = findViewById(R.id.ProfileLabel);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
         String name = extras.getString("name");
+        showname.setText(name);
         Log.d("==>","name from intent:" + name);
 
         goback.setOnClickListener(new View.OnClickListener() {

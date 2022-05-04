@@ -1,12 +1,6 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
 Först så lades log.d till för on start, stop ect. sedan så skapdes en login screen med text, ruta 
 för att skriva namn och en knapp. Sedan så skapas klick hanterare genom att för skapa en knapp 
 variable private Button signin;, och sedan så görs en findviewbyid på signin så man kan göra en
@@ -19,27 +13,60 @@ för att testa att det fungera så loggades den med en +name.getText().toString(
 skapas en intent.putExtra med get text funktionen och ger taggen ett id för att kunna skicka den 
 till main activity2, sedan så lades det till i main activity 2 en intent funktion för att hämta
 namnet och String name = extras.getString("name"); är slut funktionen som definerar id:et vi vill
-hämta. 
+hämta. För att visa namnet så skapades en textview name som sedan visas genom end findviewid på 
+texten där den skall skrivas, sedan så skapas en showname.setText(name); vilket görs att texten 
+visas på skärmen. 
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+    //MainActivity1
+    private Button signin;
+    private EditText name;
+    ...
+    ...
+    ...
+        name = findViewById(R.id.SignInName);
+
+        signin = findViewById(R.id.SignInButton);
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>", "onClick");
+                Log.d("==>", "name: "+name.getText().toString());
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putExtra("name",name.getText().toString());
+                startActivity(intent);
+            }
+        });
+        
+    //MainActivity2
+    private Button goback;
+    private TextView showname;
+    ...
+    ...
+    ...
+        goback = findViewById(R.id.GoBackButton);
+        showname = findViewById(R.id.ProfileLabel);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        String name = extras.getString("name");
+        showname.setText(name);
+        Log.d("==>","name from intent:" + name);
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>","Go Back pressed");
+                finish();
+            }
+        });
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](MainActivity1.png)
+![](MainActivity2.png)
 
 Läs gärna:
 
