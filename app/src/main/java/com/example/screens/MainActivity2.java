@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity2 extends AppCompatActivity {
+
+    private Button goback;
 
     public MainActivity2(){
         super();
@@ -39,5 +43,15 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Log.d("==>", "MA2onCreate");
+        goback = findViewById(R.id.GoBackButton);
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>","Go Back pressed");
+            }
+        });
+
     }
 }
